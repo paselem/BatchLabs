@@ -4,16 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Batch Labs Genie</title>
-    <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
+    <% if (htmlWebpackPlugin.options.metadata.isDevServer) { %>
+        <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
+    <% } %>
 </head>
 
 <body>
-    <bl-app>
+    <!--<bl-app>
         Loading...!
-    </bl-app>
-    <!--<bl-genie>
+    </bl-app>-->
+    <bl-genie>
         Loading!!!
-    </bl-genie>-->
+    </bl-genie>
 </body>
 
 </html>

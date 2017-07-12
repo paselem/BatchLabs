@@ -1,7 +1,7 @@
 import { BrowserWindow } from "electron";
 import { BatchClientProxyFactory, StorageClientProxyFactory } from "../api";
 import { Constants } from "../client-constants";
-import { UniqueWindow } from "../core";
+import { UniqueWindow, windows } from "../core";
 
 const urls = Constants.urls.genie;
 const url = process.env.HOT ? urls.dev : urls.prod;
@@ -41,6 +41,10 @@ export class GenieWindow extends UniqueWindow {
         const anyWindow = window as any;
         anyWindow.batchClientFactory = new BatchClientProxyFactory();
         anyWindow.storageClientFactory = new StorageClientProxyFactory();
+        anyWindow.foo = 1;
+        // anyWindow.logger = renderLogger;
+        anyWindow.splashScreen = windows.splashScreen;
+        // anyWindow.authenticationWindow = windows.authentication;
 
         return window;
     }
